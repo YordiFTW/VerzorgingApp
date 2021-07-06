@@ -30,26 +30,26 @@ else
     <tbody>
         @foreach (var elder in Caretakers.OfType<Caretaker>())
         {
-<tr>
-    <td>@elder.Id</td>
-    <td>@elder.FirstName</td>
-    <td>@elder.LastName</td>
-    <td>@elder.DateofBirth</td>
-    <td>
-        <a href="@($"Caretakers/CaretakerDetail/{elder.Id}")" class="btn btn-primary table-btn">
-            @*<i class="fas fa-info-circle"></i>*@
-            Details
-        </a>
-        <a href="@($"Caretakers/CaretakerEdit/{elder.Id}")" class="btn btn-primary table-btn">
-            @*<i class="fas fa-edit"></i>*@
-            Aanpassen
-        </a>
-        <a href="@($"Caretakers/CaretakerDelete/{elder.Id}")" class="btn btn-danger table-btn">
-            @*<i class="fas fa-edit"></i>*@
-            Verwijderen
-        </a>
-    </td>
-</tr>
+        <tr>
+            <td>@elder.Id</td>
+            <td>@elder.FirstName</td>
+            <td>@elder.LastName</td>
+            <td>@elder.DateofBirth</td>          
+            <td>
+                <a href="@($"Caretakers/CaretakerDetail/{elder.Id}")" class="btn btn-primary table-btn">
+                    @*<i class="fas fa-info-circle"></i>*@
+                    Details
+                </a>
+                <a href="@($"Caretakers/CaretakerEdit/{elder.Id}")" class="btn btn-primary table-btn">
+                    @*<i class="fas fa-edit"></i>*@
+                    Aanpassen
+                </a>
+                <a href="@($"Caretakers/CaretakerDelete/{elder.Id}")" class="btn btn-danger table-btn">
+                    @*<i class="fas fa-edit"></i>*@
+                    Verwijderen
+                </a>
+            </td>
+        </tr>
 }
     </tbody>
 </table>}

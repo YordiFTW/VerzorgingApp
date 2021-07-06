@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VerzorgingApp.Server.Data;
 
-namespace VerzorgingApp.Server.Data.Migrations
+namespace VerzorgingApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210706091202_2")]
-    partial class _2
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -393,11 +391,6 @@ namespace VerzorgingApp.Server.Data.Migrations
                 {
                     b.HasBaseType("VerzorgingApp.Shared.Person");
 
-                    b.Property<int?>("SupervisorId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("SupervisorId");
-
                     b.HasDiscriminator().HasValue("Caretaker");
                 });
 
@@ -405,17 +398,17 @@ namespace VerzorgingApp.Server.Data.Migrations
                 {
                     b.HasBaseType("VerzorgingApp.Shared.Person");
 
+                    b.Property<int>("CaretakerId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("CaretakerId");
+
                     b.HasDiscriminator().HasValue("Elder");
                 });
 
             modelBuilder.Entity("VerzorgingApp.Shared.Supervisor", b =>
                 {
                     b.HasBaseType("VerzorgingApp.Shared.Person");
-
-                    b.Property<int?>("CaretakerId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("CaretakerId");
 
                     b.HasDiscriminator().HasValue("Supervisor");
                 });
@@ -478,30 +471,25 @@ namespace VerzorgingApp.Server.Data.Migrations
                         .HasForeignKey("ElderId");
                 });
 
-            modelBuilder.Entity("VerzorgingApp.Shared.Caretaker", b =>
-                {
-                    b.HasOne("VerzorgingApp.Shared.Supervisor", null)
-                        .WithMany("Caretakers")
-                        .HasForeignKey("SupervisorId");
-                });
-
-            modelBuilder.Entity("VerzorgingApp.Shared.Supervisor", b =>
+            modelBuilder.Entity("VerzorgingApp.Shared.Elder", b =>
                 {
                     b.HasOne("VerzorgingApp.Shared.Caretaker", "Caretaker")
-                        .WithMany()
-                        .HasForeignKey("CaretakerId");
+                        .WithMany("Elders")
+                        .HasForeignKey("CaretakerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Caretaker");
+                });
+
+            modelBuilder.Entity("VerzorgingApp.Shared.Caretaker", b =>
+                {
+                    b.Navigation("Elders");
                 });
 
             modelBuilder.Entity("VerzorgingApp.Shared.Elder", b =>
                 {
                     b.Navigation("Medicines");
-                });
-
-            modelBuilder.Entity("VerzorgingApp.Shared.Supervisor", b =>
-                {
-                    b.Navigation("Caretakers");
                 });
 #pragma warning restore 612, 618
         }

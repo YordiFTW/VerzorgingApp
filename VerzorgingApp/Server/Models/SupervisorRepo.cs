@@ -51,8 +51,8 @@ namespace VerzorgingApp.Server.Models
                 updateSupervisor.FirstName = elder.FirstName;
                 updateSupervisor.LastName = elder.LastName;
                 updateSupervisor.DateofBirth = elder.DateofBirth;
-                updateSupervisor.CaretakerId = elder.CaretakerId;
-                updateSupervisor.Caretaker = elder.Caretaker;
+                //updateSupervisor.CaretakerId = elder.CaretakerId;
+                //updateSupervisor.Caretaker = elder.Caretaker;
 
                 _mBDbContext.SaveChanges();
 

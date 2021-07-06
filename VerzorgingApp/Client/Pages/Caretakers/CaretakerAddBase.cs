@@ -14,10 +14,15 @@ namespace VerzorgingApp.Client.Pages.Caretakers
         public ICaretakerDataService CaretakerDataService { get; set; }
 
         [Inject]
+        public IElderDataService ElderDataService { get; set; }
+
+        [Inject]
         public NavigationManager NavigationManager { get; set; }
         public Caretaker Caretaker { get; set; } = new Caretaker();
 
-  
+        public List<Elder> Elders { get; set; } = new List<Elder>();
+
+
 
 
         [Parameter]
@@ -30,6 +35,7 @@ namespace VerzorgingApp.Client.Pages.Caretakers
 
         protected override async Task OnInitializedAsync()
         {
+            Elders = (await ElderDataService.GetAllElders()).ToList();
 
             Saved = false;
             Caretaker = new Caretaker

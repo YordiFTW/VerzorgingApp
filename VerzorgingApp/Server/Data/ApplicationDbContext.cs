@@ -25,5 +25,19 @@ namespace VerzorgingApp.Server.Data
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Medicine> Medcines { get; set; }
         public DbSet<Person> People { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Elder>()
+                .HasOne(m => m.Caretaker)
+                .WithOne()
+                .HasForeignKey<Caretaker>()
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+        }
     }
+
 }

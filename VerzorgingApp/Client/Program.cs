@@ -28,14 +28,17 @@ namespace VerzorgingApp.Client
             {
                 client.BaseAddress = new Uri("https://localhost:44327");
             });
-            builder.Services.AddHttpClient<ISupervisorDataService, SupervisorDataService>(client =>
-            {
-                client.BaseAddress = new Uri("https://localhost:44327");
-            });
+           
             builder.Services.AddHttpClient<ICaretakerDataService, CaretakerDataService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44327");
             });
+
+            builder.Services.AddHttpClient<ISupervisorDataService, SupervisorDataService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44327");
+            });
+
             builder.Services.AddApiAuthorization();
 
             await builder.Build().RunAsync();

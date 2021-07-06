@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VerzorgingApp.Server.Data;
 
-namespace VerzorgingApp.Server.Data.Migrations
+namespace VerzorgingApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210706083426_1")]
-    partial class _1
+    [Migration("20210706115438_8")]
+    partial class _8
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -393,11 +393,6 @@ namespace VerzorgingApp.Server.Data.Migrations
                 {
                     b.HasBaseType("VerzorgingApp.Shared.Person");
 
-                    b.Property<int?>("SupervisorId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("SupervisorId");
-
                     b.HasDiscriminator().HasValue("Caretaker");
                 });
 
@@ -473,21 +468,9 @@ namespace VerzorgingApp.Server.Data.Migrations
                         .HasForeignKey("ElderId");
                 });
 
-            modelBuilder.Entity("VerzorgingApp.Shared.Caretaker", b =>
-                {
-                    b.HasOne("VerzorgingApp.Shared.Supervisor", null)
-                        .WithMany("Caretakers")
-                        .HasForeignKey("SupervisorId");
-                });
-
             modelBuilder.Entity("VerzorgingApp.Shared.Elder", b =>
                 {
                     b.Navigation("Medicines");
-                });
-
-            modelBuilder.Entity("VerzorgingApp.Shared.Supervisor", b =>
-                {
-                    b.Navigation("Caretakers");
                 });
 #pragma warning restore 612, 618
         }

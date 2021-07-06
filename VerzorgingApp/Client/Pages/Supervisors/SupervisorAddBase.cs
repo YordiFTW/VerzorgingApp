@@ -12,9 +12,9 @@ namespace VerzorgingApp.Client.Pages.Supervisors
     {
         [Inject]
         public ISupervisorDataService SupervisorDataService { get; set; }
-        [Inject]
-        public ICaretakerDataService CaretakerDataService { get; set; }
-        public List<Caretaker> Caretakers { get; set; } = new List<Caretaker>();
+        //[Inject]
+        //public ICaretakerDataService CaretakerDataService { get; set; }
+        //public List<Caretaker> Caretakers { get; set; } = new List<Caretaker>();
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
@@ -36,7 +36,7 @@ namespace VerzorgingApp.Client.Pages.Supervisors
 
         protected override async Task OnInitializedAsync()
         {
-            Caretakers = (await CaretakerDataService.GetAllCaretakers()).ToList();
+            //Caretakers = (await CaretakerDataService.GetAllCaretakers()).ToList();
 
             Saved = false;
             Supervisor = new Supervisor

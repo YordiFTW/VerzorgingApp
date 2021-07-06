@@ -10,8 +10,8 @@ namespace VerzorgingApp.Shared
     {
         
 
-        public Caretaker Caretaker { get; set; }
+        //public Caretaker Caretaker { get; set; }
 
-        public string CaretakerId { get; set; }
+        //public string CaretakerId { get; set; }
     }
 }

@@ -30,47 +30,49 @@
                 <ValidationMessage For="@(() => Elder.DateofBirth)" />
             </div>
 
-            @*<div class="form-group">
-                <label for="title">Invite User: </label>
-                <InputText id="title" class="form-control" @bind-Value="@Plan.InviteUser" placeholder="Invite User"></InputText>
-                <ValidationMessage For="@(() => Plan.InviteUser.)" />
-            </div>*@
-            @*<RadzenButton ButtonType="Radzen.ButtonType.Button" Text="Add"
-                          ButtonStyle="Radzen.ButtonStyle.Primary" class="btn-block mr-2" Click="AddInviteUser" />*@
-
-            @*<div class="form-group row">
-                <label class="col-sm-4 col-form-label"></label>
-                <div class="col-sm-8">
-                    @foreach (string user in invitedUsers)
-                    {
-                    <label type="text" class="form-control-plaintext">@user</label>
-                    }
-                </div>
-            </div>*@
-
             
 
             @*<div class="form-group">
-                    <label for="Invite">Invite User: </label>
-                    <InputText id="Invite" class="form-control" @bind-Value="@Plan.InviteUser" placeholder="InvitedUsers"></InputText>
-                    <ValidationMessage For="@(() => Plan.InviteUser)" />
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Invited Users</label>
-                    <div class="col-sm-8">
-                        <label type="text" class="form-control-plaintext">@Plan.InviteUser</label>
-                    </div>
-                </div>*@
+            <label for="title">Invite User: </label>
+            <InputText id="title" class="form-control" @bind-Value="@Plan.InviteUser" placeholder="Invite User"></InputText>
+            <ValidationMessage For="@(() => Plan.InviteUser.)" />
+        </div>*@
+            @*<RadzenButton ButtonType="Radzen.ButtonType.Button" Text="Add"
+        ButtonStyle="Radzen.ButtonStyle.Primary" class="btn-block mr-2" Click="AddInviteUser" />*@
 
             @*<div class="form-group row">
-                <label for="PlanCatagoryEnum" class="col-sm-3">Voorkeur contactvorm: </label>
-                <InputSelect id="PlanCatagoryEnum" class="form-control col-sm-8" @bind-Value=@Plan.Catagory>
-                    <option value="@(PlanCatagoryEnum.Event1)">@PlanCatagoryEnum.Event1</option>
-                    <option value="@(PlanCatagoryEnum.Event2)">@PlanCatagoryEnum.Event2</option>
-                    <option value="@(PlanCatagoryEnum.Event3)">@PlanCatagoryEnum.Event3</option>
-                </InputSelect>
-            </div>*@
+            <label class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-8">
+                @foreach (string user in invitedUsers)
+                {
+                <label type="text" class="form-control-plaintext">@user</label>
+                }
+            </div>
+        </div>*@
+
+
+
+            @*<div class="form-group">
+            <label for="Invite">Invite User: </label>
+            <InputText id="Invite" class="form-control" @bind-Value="@Plan.InviteUser" placeholder="InvitedUsers"></InputText>
+            <ValidationMessage For="@(() => Plan.InviteUser)" />
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Invited Users</label>
+            <div class="col-sm-8">
+                <label type="text" class="form-control-plaintext">@Plan.InviteUser</label>
+            </div>
+        </div>*@
+
+            @*<div class="form-group row">
+            <label for="PlanCatagoryEnum" class="col-sm-3">Voorkeur contactvorm: </label>
+            <InputSelect id="PlanCatagoryEnum" class="form-control col-sm-8" @bind-Value=@Plan.Catagory>
+                <option value="@(PlanCatagoryEnum.Event1)">@PlanCatagoryEnum.Event1</option>
+                <option value="@(PlanCatagoryEnum.Event2)">@PlanCatagoryEnum.Event2</option>
+                <option value="@(PlanCatagoryEnum.Event3)">@PlanCatagoryEnum.Event3</option>
+            </InputSelect>
+        </div>*@
 
             <button type="submit" class="btn btn-primary">Opslaan</button>
         </EditForm> }
